@@ -1,6 +1,6 @@
 #
 - name: partition play
-  hosts: servera
+  hosts: all
   gather_facts: no
   tasks:
   - name: create partition 1
