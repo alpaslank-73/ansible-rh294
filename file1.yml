@@ -1,0 +1,17 @@
+- hosts: servera
+  gather_facts: no
+  tasks:
+          #  - file:
+          #      dest: /tmp/dir1
+          #      state: directory
+          #      owner: devops
+          #      group: devops
+          #      mode: 0644
+  - stat:
+      checksum_algorithm: md5
+      path: /tmp/file1
+    register: file1
+  - debug:
+      var: file1.stat.checksum
+  - debug:
+    when: file1.stat.exists

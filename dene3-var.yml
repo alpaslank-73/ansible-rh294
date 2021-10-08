@@ -1,0 +1,8 @@
+- name: play1
+  hosts: all
+  gather_facts: no
+  tasks:
+  - name: my first task
+    debug:
+      #var: myuser
+      msg: "{{ myuser }} is the user name"

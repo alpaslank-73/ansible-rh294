@@ -1,0 +1,12 @@
+- name: play1
+  hosts: servera
+  gather_facts: no
+  tasks:
+  - name: install packages
+    yum:
+      name: "{{ item }}" 
+      state: present
+    loop:
+    - httpd
+    - vsftpd
+    - postfix

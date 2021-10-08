@@ -1,0 +1,17 @@
+- hosts: servera
+  gather_facts: no
+  force_handlers: yes
+  tasks:
+  - name: a task which always notifies its handler
+    command: /bin/true
+    notify: my handler
+  
+  - name: a task which fails because the package doesn't exist
+    yum:
+      name: notapkg
+      state: latest
+
+  handlers:
+  - name: my handler
+    debug:
+      msg: "Handler calisti"

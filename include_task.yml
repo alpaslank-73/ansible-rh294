@@ -1,0 +1,6 @@
+- name: include edilen task - 1
+  debug:
+    msg: include 1
+- name: include edilen task - 2
+  debug:
+    msg: include 2

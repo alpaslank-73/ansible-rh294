@@ -1,0 +1,53 @@
+- name: vm2 uzerinde test.perception.com.tr yedek al ve live siteyi update et
+  hosts: localhost
+  vars:
+    date: "{{ lookup('pipe', 'date +%Y-%m-%d') }}"
+  tasks:
+  - name: set python version
+    set_fact:
+      ansible_python_interpreter: python3.9
+#  - debug:
+#      var: date
+  - name: backup perception_test_db 
+    mysql_db:
+      state: dump
+      name: perception_test_db
+      target: dbs/perception_test_db.sql-{{ date }}
+      login_host: localhost
+      login_user: 'yedek'
+      login_password: 'sifre_123'
+
+  - name: restore perception_db - BURASI Live Web sitesini update ediyor
+    mysql_db:
+      state: import
+      name: perception_db
+      target: dbs/perception_test_db.sql-{{ date }}
+      login_host: localhost
+      login_user: 'yedek'
+      login_password: 'sifre_123'
+- name: copy db to vm3 and restore
+  hosts: vm3
+  vars:
+    date: "{{ lookup('pipe', 'date +%Y-%m-%d') }}"
+  tasks:
+  - name: set python version
+    set_fact:
+      ansible_python_interpreter: /opt/rh/rh-python36/root/usr/bin/python
+  - name: copy db to vm3
+    copy: 
+      src: dbs/perception_test_db.sql-{{ date }}
+      dest: /root/dbs/perception_test_db.sql-{{ date }}
+  - name: replace utf8mb4 with utf8
+    replace:
+      path: /root/dbs/perception_test_db.sql-{{ date }}
+      regexp: 'SET NAMES utf8mb4'
+      replace: 'SET NAMES utf8'
+  - name: restore db
+    mysql_db:
+      state: import
+      name: perception_db
+      target: dbs/perception_test_db.sql-{{ date }}
+      login_host: localhost
+      login_user: 'yedek'
+      login_password: 'sifre_123'
+

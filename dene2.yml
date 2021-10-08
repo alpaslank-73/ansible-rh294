@@ -1,0 +1,11 @@
+- name: play1
+  hosts: servera
+  gather_facts: no
+  tasks:
+  - name: my copy task
+    copy:
+      dest: /tmp/myfile1
+      content: >
+        Example Company
+        123 Main Street
+        Atlanta, GA 30303

@@ -1,0 +1,9 @@
+- name: my play1
+  hosts: servera
+  #vars:
+  #  local_shell: "{{ ansible_env }}"
+  tasks:
+  - name: Printing all the environment variables in Ansible
+    debug:
+      #msg: "{{ local_shell }}"
+      msg: "{{ lookup('env','USER','HOME','SHELL') }}"

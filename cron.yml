@@ -1,0 +1,11 @@
+- name: play1
+  hosts: servera
+  gather_facts: no
+  tasks:
+  - cron:
+      name: "Dosya Deneme"
+      user: "student"
+      #minute: 45
+      #hour: 11
+      job: "mycommand"
+      cron_file: mycronfile

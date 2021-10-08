@@ -1,0 +1,8 @@
+- name: play1
+  hosts: all
+  gather_facts: no
+  tasks:
+  - name: my debug task
+    debug:
+      var: inventory_hostname
+    when: inventory_hostname in groups.webservers

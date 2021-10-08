@@ -1,0 +1,9 @@
+- name: play1
+  hosts: servera
+  tasks:
+  - name: task1
+    user:
+      name: ali
+      state: absent
+      remove: yes
+

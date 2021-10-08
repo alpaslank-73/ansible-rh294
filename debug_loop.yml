@@ -1,0 +1,16 @@
+- name: play1
+  hosts: servera
+  gather_facts: no
+  tasks:
+  - name: Looping Echo Task
+    shell: "echo This is my item: {{ item }}"
+    loop:
+      - one
+      - two
+    register: echo_results
+  
+  - name: show echo results
+    debug: 
+      #var: echo_results
+      msg: "STDOUT from previous task: {{ item.stdout }}"
+    loop: "{{ echo_results.results }}"

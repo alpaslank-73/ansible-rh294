@@ -1,0 +1,4 @@
+- name: role deneme1
+  hosts: servera
+  roles:
+  - myrole

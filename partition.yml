@@ -1,0 +1,54 @@
+- name: partition play
+  hosts: servera
+  gather_facts: no
+  tasks:
+  - name: create partition 1
+    parted: 
+      device: /dev/vdb
+      number: 1
+      state: present
+      part_end: 257MiB
+
+  - name: create partition 2
+    parted: 
+      device: /dev/vdb
+      number: 2
+      state: present
+      part_start: 257MiB
+      part_end: 513MiB
+
+  - name: create partition 3
+    parted: 
+      device: /dev/vdb
+      number: 3
+      state: present
+      part_start: 513MiB
+      part_end: 1025MiB
+
+  - name: create extended partition
+    parted: 
+      device: /dev/vdb
+      number: 4
+      state: present
+      part_start: 1025MiB
+      part_end: 100%
+      part_type: extended
+
+  - name: create 1st logical partition
+    parted: 
+      device: /dev/vdb
+      number: 5
+      state: present
+      part_start: 1026MiB
+      part_end: 2050MiB
+      part_type: logical
+
+  - name: create 2nd logical partition
+    parted: 
+      device: /dev/vdb
+      number: 6
+      state: present
+      part_start: 2051MiB
+      part_end: 100%
+      part_type: logical
+      flags: [ lvm ]

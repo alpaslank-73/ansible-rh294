@@ -1,0 +1,7 @@
+- name: play1
+  hosts: all
+  tasks:
+  - name: mytask1
+    template:
+      src: templates/mytemp2.j2
+      dest: /tmp/myhosts

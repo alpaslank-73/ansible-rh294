@@ -1,0 +1,15 @@
+- name: Installs a package and prints the result
+  hosts: servera
+  tasks:
+  - name: task1
+    yum:
+      name: zsh
+      state: installed
+    register: sonuc
+
+  - debug:
+      var: sonuc.changed
+
+  - debug:
+      msg: "task1 birseyleri degistirdi"
+    when: sonuc.changed

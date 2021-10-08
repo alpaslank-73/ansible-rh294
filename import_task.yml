@@ -1,0 +1,7 @@
+- name: import edilen task - 1
+  debug:
+    msg: import 1
+- name: import edilen task - 2
+  debug:
+    msg: import 2
+

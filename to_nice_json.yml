@@ -1,0 +1,19 @@
+- hosts: servera
+  gather_facts: false
+  vars:
+    secrets:
+      psp1:
+        username: this
+        password: that
+      secret_key: 123
+  tasks:
+    - copy:
+        content: "{{ secrets }} is the value\n"
+        dest: /tmp/file1
+    - copy:
+        content: "{{ secrets | to_nice_json }} is the value\n"
+        dest: /tmp/file2
+    - copy:
+        content: "{{ secrets | to_nice_yaml }} is the value\n"
+        dest: /tmp/file3
+
