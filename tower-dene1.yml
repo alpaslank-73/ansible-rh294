@@ -1,5 +1,5 @@
 - name: play1
-  hosts: servera
+  hosts: localhost
   tasks:
   - name: task1
     user:
