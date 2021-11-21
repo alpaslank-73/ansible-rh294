@@ -1,0 +1,11 @@
+- name: play1
+  hosts: all
+  gather_facts: 0
+  tasks:
+  - name: task1
+    user:
+      name: ali
+      state: absent
+      remove: yes
+    failed_when: inventory_hostname == "serverd"
+
