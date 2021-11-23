@@ -1,0 +1,12 @@
+- name: Generate dynamic groups
+  hosts: all
+  tasks:
+    - name: Generate dynamic groups based on architecture
+      group_by:
+        key: "arch_{{ ansible_facts.architecture }}"
+
+- name: See the group members
+  hosts: servera
+  tasks:
+    - debug:
+        var: groups.arch_x86_64
