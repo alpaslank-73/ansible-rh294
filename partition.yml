@@ -35,21 +35,21 @@
       part_end: 100%
       part_type: extended
 
-  - name: create 1st logical partition
-    parted: 
-      device: /dev/vdb
-      number: 5
-      state: present
-      part_start: 194MiB
-      part_end: 322MiB
-      part_type: logical
-
-  - name: create 2nd logical partition
-    parted: 
-      device: /dev/vdb
-      number: 6
-      state: present
-      part_start: 323MiB
-      part_end: 100%
-      part_type: logical
-      flags: [ lvm ]
+      #  - name: create 1st logical partition
+      #    parted: 
+      #      device: /dev/vdb
+      #      number: 5
+      #      state: present
+      #      part_start: 194MiB
+      #      part_end: 322MiB
+      #      part_type: logical
+      #
+      #  - name: create 2nd logical partition
+      #    parted: 
+      #      device: /dev/vdb
+      #      number: 6
+      #      state: present
+      #      part_start: 323MiB
+      #      part_end: 100%
+      #      part_type: logical
+      #      flags: [ lvm ]
