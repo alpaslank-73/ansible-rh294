@@ -1,5 +1,5 @@
 - name: play1
-  hosts: all
+  hosts: webservers
   tasks:
   - name: task1
     user:
