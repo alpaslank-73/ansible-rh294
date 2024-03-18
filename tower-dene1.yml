@@ -1,9 +1,9 @@
 - name: play1
-  hosts: localhost
+  hosts: servera
   tasks:
   - name: task1
     user:
-      name: ali
+      name: "{{ user }}"
       state: absent
       remove: yes
 
