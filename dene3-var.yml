@@ -5,4 +5,4 @@
   - name: my first task
     debug:
       #var: myuser
-      msg: "{{ myuser }} is the user name"
+      msg: "{{ inventory_hostname }} is the inventory name"
