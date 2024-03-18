@@ -4,6 +4,6 @@
   - name: task1
     user:
       name: ali
-      state: absen
+      state: absent
       remove: yes
 
