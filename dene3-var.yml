@@ -6,5 +6,5 @@
   tasks:
   - name: my first task
     debug:
-      #var: myuser
-      msg: "{{ ansible_fqdn }}"
+      var: myuser
+      #msg: "{{ ansible_fqdn }}"
