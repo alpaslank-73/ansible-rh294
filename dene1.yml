@@ -1,4 +1,4 @@
-- name: play1 - deneme1
+- name: play1 - deneme2
   hosts: all
   tasks:
   - name: task1
