@@ -1,6 +1,6 @@
 - name: play1
   hosts: all
-  gather_facts: yes
+  gather_facts: no
   vars:
     myuser: ali
   tasks:
