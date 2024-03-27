@@ -3,7 +3,6 @@
   tasks:
   - uri:
       url: http://{{ ansible_fqdn }}
-      #url: http://{{ item }}
       return_content: yes
     delegate_to: localhost
     register: sonuc
