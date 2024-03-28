@@ -1,0 +1,16 @@
+- hosts: all
+  tasks:
+  - dnf:
+      name: httpd
+      state: installed
+  - copy:
+      content: "Hello from {{ ansible_fqdn }}\n"
+      dest: /var/www/html/index.html
+  - service:
+      name: httpd
+      state: started
+  - firewalld:
+      service: http
+      permanent: yes
+      immediate: yes
+      state: enabled

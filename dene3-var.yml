@@ -7,4 +7,4 @@
   - name: my first task
     debug:
       var: myuser
-      #msg: "{{ inventory_hostname }} is the inventory name"
+      #msg: "{{ ansible_fqdn }}"

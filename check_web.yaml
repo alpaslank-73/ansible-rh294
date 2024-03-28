@@ -1,0 +1,11 @@
+- hosts: all
+  become: false
+  tasks:
+  - uri:
+      url: http://{{ ansible_fqdn }}
+      return_content: yes
+    delegate_to: localhost
+    register: sonuc
+    failed_when: "'Hello from' not in sonuc.content"
+  - debug:
+      msg: "{{ sonuc.content }}"
