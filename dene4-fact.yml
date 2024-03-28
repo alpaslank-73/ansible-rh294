@@ -1,11 +1,12 @@
 - name: play1
   hosts: servera
+  gather_facts: no
   tasks:
   - name: task1
     debug: 
       #var: ansible_facts.devices.vda.partitions.vda1.size
-      #var: ansible_devices.vda.partitions.vda1.size
-      var: ansible_facts.ansible_local.alp.custom.db_package 
+      var: ansible_devices.vda.partitions.vda1.size
+      #var: ansible_facts.ansible_local.alp.custom.db_package 
 
 # cat /etc/ansible/facts.d/alp.fact
 #[custom]
