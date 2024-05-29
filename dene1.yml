@@ -1,9 +1,7 @@
 - name: play1 - deneme1
-  hosts: all
+  hosts: servera
   tasks:
   - name: task1
-    user:
-      name: ali
-      state: absent
-      remove: yes
+    debug:
+      msg: selamlar - 1
 
