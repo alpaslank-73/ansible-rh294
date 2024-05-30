@@ -1,7 +1,9 @@
 - name: play1 - deneme1
-  hosts: servera
+  hosts: all
+  vars:
+    greeting: Selam
   tasks:
   - name: task1
     debug:
-      msg: selamlar - 1
+      msg: "{{ greeting }}"
 
