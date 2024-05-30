@@ -6,5 +6,5 @@
   tasks:
   - name: task1
     debug:
-      msg: "{{ ansible_fqdn }}"
+      msg: "{{ greeting }}"
 
