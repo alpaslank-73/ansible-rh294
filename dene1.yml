@@ -1,6 +1,6 @@
 - name: play1 - deneme1
   hosts: all
-  gather_facts: false
+  gather_facts: true
   vars:
     greeting: Selam
   tasks:
