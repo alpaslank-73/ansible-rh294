@@ -1,0 +1,31 @@
+- name: Install and configure webserver
+  hosts: webservers
+  tasks:
+  - name: install httpd RPM
+    dnf:
+      name: httpd
+      state: installed
+  - name: start httpd service
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+  - name: open http port
+    firewalld:
+      service: http
+      state: enabled
+      immediate: true
+      permanent: true
+        #  - name: create index.html
+        #    copy:
+        #      content: "Welcome to {{ansible_fqdn}}\n"
+        #      dest: /var/www/html/index.html
+
+  - name: Check webservers
+    ansible.builtin.uri:
+      url: http://{{ inventory_hostname }}.lab.example.com
+      return_content: yes
+    register: sonuc
+    failed_when: "'Welcome' not in sonuc.content"
+    delegate_to: workstation
+
