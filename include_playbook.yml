@@ -1,3 +1,0 @@
-- name: import playbook
-  import_playbook: dene1.yml
-
