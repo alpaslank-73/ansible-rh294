@@ -11,7 +11,7 @@
 
     - name: Test html page is installed
       ansible.builtin.copy:
-        content: "welcome to {{ inventory_hostname }}!\n"
+        content: "Welcome to {{ inventory_hostname }}!\n"
         dest: /var/www/html/index.html
 
     - name: Firewall enabled and running
@@ -45,15 +45,14 @@
       status_code: 200
     register: sonuc
 
-      #  - debug:
-      #      var: sonuc
-      #
   - set_fact:
-      match: "{{ (sonuc.content is search('welcom.*')) | default('') }}"
+      match: "{{ sonuc.content | regex_search('Wel.*me') }}"
+
+  - debug: 
+      msg: match degiskeninin degeri "{{match}}"dir
 
   - name: Fail if webserver does not return proper content
     fail:
       msg: "Istenen icerik elde edilemedi"
-        #when: "'welcom' not in sonuc.content"
     when: match == ''
 
