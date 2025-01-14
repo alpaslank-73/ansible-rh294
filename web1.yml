@@ -38,3 +38,13 @@
     loop: "{{ sonuc.results }}"
     when: "'Welcome' not in item.content"
       
+# Direkt uri taskini FAIL ettirmek istersek:
+#  - name: use URI module to check web page
+#    ansible.builtin.uri:
+#      url: http://{{ item }}.lab.example.com
+#      return_content: yes
+#    register: sonuc
+#    loop:
+#    - servera
+#    - serverb
+#    failed_when: "'Welcome' not in sonuc.content"
