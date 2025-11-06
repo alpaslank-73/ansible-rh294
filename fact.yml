@@ -1,4 +1,4 @@
-- name: play1
+- name: play1 for fact gathering example
   hosts: servera
   gather_facts: true
   tasks:
