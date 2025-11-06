@@ -1,6 +1,6 @@
 - name: play1
   hosts: servera
-  gather_facts: no
+  gather_facts: true
   tasks:
   - name: task1
     debug: 
