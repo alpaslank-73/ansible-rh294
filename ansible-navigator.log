@@ -11,3 +11,8 @@
 
 2026-09-05T16:02:30.087514+00:00 WARNING 'ansible_navigator.image_manager.puller._log_message' stderr: Error: utility.lab.example.com:5000/ansible-automation-platform-25/ee-supported-rhel8:latest: image not known
 
+2026-09-06T10:56:13.684971+00:00 WARNING 'ansible_navigator.image_manager.puller._log_message' Image inspection failed, image assumed to be corrupted or missing
+2026-09-06T10:56:13.685082+00:00 WARNING 'ansible_navigator.image_manager.puller._log_message' stdout: []
+
+2026-09-06T10:56:13.685123+00:00 WARNING 'ansible_navigator.image_manager.puller._log_message' stderr: Error: utility.lab.example.com:5000/ansible-automation-platform-25/ee-supported-rhel8:latest: image not known
+
