@@ -1,0 +1,15 @@
+- name: Fetch motd file from a single host
+  hosts: servera
+  tasks:
+    - name: create dir
+      file:
+        path: /tmp/collected_files
+        state: directory
+        owner: student
+      delegate_to: localhost
+
+    - name: Fetch /etc/motd with flat structure
+      ansible.builtin.fetch:
+        src: /etc/motd
+        dest: /tmp/collected_files/
+        #flat: true
