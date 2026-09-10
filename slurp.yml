@@ -1,0 +1,13 @@
+- name: play1
+  hosts: servera
+  gather_facts: no
+  tasks:
+  - debug:
+      msg: "{{ lookup('ansible.builtin.file', '/etc/hostname') }}"
+  - name: Collect file content
+    ansible.builtin.slurp:
+      src: /etc/hostname
+    register: slurped_file
+  - debug:
+      msg: "{{ slurped_file['content'] | b64decode }}"
+
